@@ -38,25 +38,22 @@ jobs:
     name: BSP Compilation with More Drivers
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
           python-version: 3.8
 
-      - name: Install Tools
+      - name: Install System Tools
         shell: bash
         run: |
           sudo apt-get update
           sudo apt-get -qq install gcc-multilib libncurses5 libncurses5-dev libncursesw5-dev scons
           sudo python -m pip install --upgrade pip -qq
           git config --global http.postBuffer 524288000
-          git remote -v
-          git fetch origin
-          cd rt-thread
-          python -c "import tools.menuconfig; tools.menuconfig.touch_env()"
-          cd ..
-
+      
       - name: Install Arm ToolChains
         if: ${{ success() }}
         shell: bash
@@ -65,6 +62,15 @@ jobs:
           sudo tar xjf gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2 -C /opt
           /opt/gcc-arm-none-eabi-10-2020-q4-major/bin/arm-none-eabi-gcc --version
           echo "RTT_EXEC_PATH=/opt/gcc-arm-none-eabi-10-2020-q4-major/bin" >> $GITHUB_ENV
+
+      - name: Install RT-Thread ENV
+        shell: bash
+        run: |
+          git remote -v
+          git fetch origin
+          cd rt-thread
+          python -c "import tools.menuconfig; tools.menuconfig.touch_env()"
+          cd ..
 
       - name: Bsp Scons Compile
         if: ${{ success() }}

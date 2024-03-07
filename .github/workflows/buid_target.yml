@@ -10,35 +10,35 @@
 
 name: build target
 
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
 on:
   push:
     branches:
-      - "develop"
-      - "master"
-      - "main"
-      - "test-*"
-      paths-ignore:
-        - docs/**
-        - '**/README.md'
-    pull_requrest:
-      branches:
-        - '*'
-      paths-ignore:
-        - docs/**
-        - '**/README.md'
+      - master
+    paths-ignore:
+      - documentation/**
+      - '**/README.md'
+      - '**/README_zh.md'
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - documentation/**
+      - '**/README.md'
+      - '**/README_zh.md'
 
 permissions:
-  contents:  read # to fetch code (actions/checkout)
+  contents: read # to fetch code (actions/checkout)
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: build target
+    name: BSP Compilation with More Drivers
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: set up python
+      - name: Set up Python
         uses: actions/setup-python@v3
         with:
           python-version: 3.8
@@ -69,3 +69,4 @@ jobs:
         run: |
           source ~/.env/env.sh
           scons
+          #python tools/ci/compile_bsp_with_drivers.py

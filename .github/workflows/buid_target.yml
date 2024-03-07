@@ -55,6 +55,7 @@ jobs:
           git fetch origin
           cd rt-thread
           python -c "import tools.menuconfig; tools.menuconfig.touch_env()"
+          cd ..
 
       - name: Install Arm ToolChains
         if: ${{ success() }}

@@ -1,0 +1,154 @@
+{
+    "global": {
+        "use-micro-lib": false,
+        "output-debug-info": true,
+        "build-output-dir": "./.rtt-studio/Debug\\",
+        "list-output-dir": ".\\build\\keil\\List\\",
+        "mem-layout": {
+            "rom": [
+                {
+                    "name": "rom1",
+                    "checked": false,
+                    "address": "0x0",
+                    "size": "0x0",
+                    "is_entry": false
+                },
+                {
+                    "name": "rom2",
+                    "checked": false,
+                    "address": "0x0",
+                    "size": "0x0",
+                    "is_entry": false
+                },
+                {
+                    "name": "rom3",
+                    "checked": false,
+                    "address": "0x0",
+                    "size": "0x0",
+                    "is_entry": false
+                },
+                {
+                    "name": "irom1",
+                    "checked": true,
+                    "address": "0x8000000",
+                    "size": "0x80000",
+                    "is_entry": true
+                },
+                {
+                    "name": "irom2",
+                    "checked": false,
+                    "address": "0x0",
+                    "size": "0x0",
+                    "is_entry": false
+                }
+            ],
+            "ram": [
+                {
+                    "name": "ram1",
+                    "checked": false,
+                    "noInit": false,
+                    "address": "0x0",
+                    "size": "0x0"
+                },
+                {
+                    "name": "ram2",
+                    "checked": false,
+                    "noInit": false,
+                    "address": "0x0",
+                    "size": "0x0"
+                },
+                {
+                    "name": "ram3",
+                    "checked": false,
+                    "noInit": false,
+                    "address": "0x0",
+                    "size": "0x0"
+                },
+                {
+                    "name": "iram1",
+                    "checked": true,
+                    "noInit": false,
+                    "address": "0x20000000",
+                    "size": "0x10000"
+                },
+                {
+                    "name": "iram2",
+                    "checked": false,
+                    "noInit": false,
+                    "address": "0x0",
+                    "size": "0x0"
+                }
+            ]
+        }
+    },
+    "c/cpp": {
+        "include-list": [
+            "applications",
+            ".",
+            "..\\..\\..\\components\\libc\\compilers\\common\\include",
+            "..\\..\\..\\components\\libc\\compilers\\common\\extension",
+            "..\\..\\..\\components\\libc\\compilers\\common\\extension\\fcntl\\octal",
+            "..\\..\\..\\libcpu\\arm\\common",
+            "..\\..\\..\\libcpu\\arm\\cortex-m3",
+            "..\\..\\..\\components\\drivers\\include",
+            "..\\..\\..\\components\\drivers\\include",
+            "..\\..\\..\\components\\drivers\\include",
+            "board",
+            "board\\CubeMX_Config\\Inc",
+            "board\\ports",
+            "..\\libraries\\HAL_Drivers",
+            "..\\libraries\\HAL_Drivers\\config",
+            "..\\libraries\\HAL_Drivers\\CMSIS\\Include",
+            "..\\..\\..\\components\\finsh",
+            ".",
+            "..\\..\\..\\include",
+            "..\\libraries\\STM32F1xx_HAL\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
+            "..\\libraries\\STM32F1xx_HAL\\STM32F1xx_HAL_Driver\\Inc",
+            "..\\..\\..\\components\\libc\\posix\\io\\poll",
+            "..\\..\\..\\components\\libc\\posix\\io\\stdio",
+            "..\\..\\..\\components\\libc\\posix\\ipc"
+        ],
+        "define-list": [
+            "__STDC_LIMIT_MACROS",
+            " STM32F103xE",
+            " USE_HAL_DRIVER",
+            " RT_USING_LIBC",
+            " __CLK_TCK=RT_TICK_PER_SECOND",
+            " __RTTHREAD__",
+            " RT_USING_ARM_LIBC"
+        ],
+        "misc-controls": "",
+        "execute-only-code": false,
+        "read-only-position-independent": false,
+        "read-write-position-independent": false,
+        "split-load-and-store-multiple": false,
+        "c99-mode": true,
+        "optimization": 1,
+        "optimize-for-time": false,
+        "one-elf-section-per-function": true,
+        "strict-ansi-c": false,
+        "enum-container-always-int": false,
+        "plain-char-is-signed": false,
+        "gnu-extensions": false,
+        "warnings": 2
+    },
+    "asm": {
+        "include-list": [],
+        "define-list": [],
+        "misc-controls": "",
+        "execute-only-code": false,
+        "read-only-position-independent": false,
+        "read-write-position-independent": false,
+        "split-load-and-store-multiple": false,
+        "thumb-mode": false,
+        "no-warnings": false
+    },
+    "linker": {
+        "auto-gen-scatter-file": false,
+        "linker-scatter-file": ".\\board\\linker_scripts\\link.sct",
+        "misc-controls": "",
+        "read-only-position-independent": false,
+        "read-write-position-independent": false,
+        "not-search-std-libs": false
+    }
+}
